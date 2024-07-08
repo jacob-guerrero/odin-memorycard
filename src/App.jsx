@@ -24,12 +24,12 @@ function App() {
 
   return (
     <>
-      <header>
+      <header className="header-content">
         <Title titleName="The Memory Game!"></Title>
         <Score currentScore={score} bestScore={bestScore}></Score>
       </header>
 
-      <main>
+      <main className="container">
         {content.map((card, index) => (
           <Card key={index} name={card.id} url={card.url}></Card>
         ))}
