@@ -11,12 +11,21 @@ import Card from "./components/Card";
   { id: "Four", name: "Four", url: "https://cdn2.thecatapi.com/images/b37.jpg" },
 ]; */
 
-const catNames = ["Hestu","Koga","Impa","Deku","Zora","Mipha Grace","Hyrule","Castle","Ultra","Peter Parker","Fury","Deadpool","Bakshi","Whiplash","Flounder","Eric","Ursula","Ariel","Scuttle","Maple Syrup","Pastrami","Calzone","Burrata","Boursin","Provolone","Harriet Styles","Hakuna Madonna","Taylor","Swift","Evermore","Inez","Karma","Lavender","August","Midnight","Harry", "Mona", "Lisa", "Phil", "Lil", "Monica", "Rachel", "Polka", "Dot", "Puss", "Boots", "Daisy", "Piper", "Madame President", "Katy", "Cindy", "Purry", "Kitty", "Kitten", "Whiskers", "Fluffy", "Mittens", "Snowball", "Simba", "Leo", "Lola", "Felix", "Cleo", "Mittens", "Patches", "Peanut", "Pumpkin", "Pixie", "Puddles", "Sparky", "Socks", "Sugar", "Sweetie", "Tiny", "Tiger", "Tilly", "Toby", "Trixie", "Whiskers", "Winston", "Xena", "Yoda", "Zoe",
+const catNames = ["Hestu","Koga","Impa","Deku","Zora","Mipha Grace","Hyrule","Castle","Ultra","Peter Parker","Fury","Deadpool","Bakshi","Whiplash","Flounder","Eric","Ursula","Ariel","Scuttle","Maple Syrup","Pastrami","Calzone","Burrata","Boursin","Provolone","Harriet","Hakuna Madonna","Taylor","Swift","Evermore","Inez","Karma","Lavender","August","Midnight","Harry", "Mona", "Lisa", "Phil", "Lil", "Monica", "Rachel", "Polka", "Dot", "Puss", "Boots", "Daisy", "Piper", "Madame President", "Katy", "Cindy", "Purry", "Kitty", "Kitten", "Whiskers", "Fluffy", "Mittens", "Snowball", "Simba", "Leo", "Lola", "Felix", "Cleo", "Mittens", "Patches", "Peanut", "Pumpkin", "Pixie", "Puddles", "Sparky", "Socks", "Sugar", "Sweetie", "Tiny", "Tiger", "Tilly", "Toby", "Trixie", "Whiskers", "Winston", "Xena", "Yoda", "Zoe",
 ]
 
 const getRandomCatNames = (count) => {
   const shuffled = catNames.sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
+};
+
+const shuffleArray = (array) => {
+  let newArray = array.slice(); // Create a copy of the array
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
 };
 
 function App() {
@@ -53,6 +62,11 @@ function App() {
     setScore(0);
   };
 
+  const shuffeCards = () => {
+    const shuffledCards = shuffleArray(cards);
+    setCards(shuffledCards);
+  };
+
   return (
     <>
       <header className="header-content">
@@ -66,7 +80,7 @@ function App() {
         ))}
       </main>
 
-      <button onClick={() => setScore((score) => score + 1)}>
+      <button onClick={() => {setScore((score) => score + 1); shuffeCards()}}>
         Score is {score}
       </button>
       <button onClick={changeBestScore}>Set Score</button>

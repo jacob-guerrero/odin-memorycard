@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function Card (props) {
+    const [wasClicked, setWasClicked] = useState(false);
+
     return (
         <div className="card">
             <div className="card-img">
