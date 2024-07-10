@@ -154,7 +154,6 @@ function App() {
 
   const shuffleCards = () => {
     setCards((prevCards) => shuffleArray([...prevCards]));
-    console.log("shuffled!");
   };
 
   return (
