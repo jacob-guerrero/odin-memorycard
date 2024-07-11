@@ -2,6 +2,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 0;
+}
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 75%;
+}
+
+.title { 
+    font-size: clamp(2rem, -1.5rem + 8vw, 3rem);
+}
+.desc {
+    font-size: clamp(1rem, 0.625rem + 1.2vw, 1.3rem);
+}
+
+.score {
+    font-size: clamp(1.2rem, 0.95rem + 0.8vw, 1.4rem);
+    font-weight: 700;
 }
 
 .container {
@@ -9,6 +28,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, 200px);
     gap: 1rem;
+    padding: 1rem 0;
 }
 
 .card {
