@@ -121,13 +121,13 @@ function App() {
   useEffect(() => {
     // Fetch data from an external API
     const fetchData = async () => {
-      /* const apiKey = 'live_VSgQc5Zpc0fRIbMPUp0mxGWO1DdQXUjTouFKxBMGqGLfAizmDZvoMjygidNuvCaj';
+      /* const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12'); */
+      const apiKey = 'live_VSgQc5Zpc0fRIbMPUp0mxGWO1DdQXUjTouFKxBMGqGLfAizmDZvoMjygidNuvCaj';
       const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12', {
         headers: {
           'x-api-key': apiKey
         }
-      }); */
-      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12');
+      });
       const data = await response.json();
 
       /* Add random names */

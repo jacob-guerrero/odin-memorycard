@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Permanent+Marker&family=Poetsen+One&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -43,7 +43,7 @@ body {
   display: flex;
   justify-content: center;
   place-items: center;
-  min-width: 320px;
+  min-width: 220px;
   min-height: 100vh;
 }
 
