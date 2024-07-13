@@ -3,6 +3,7 @@ import "./styles/App.css";
 import Title from "./components/Title";
 import Score from "./components/Score";
 import Card from "./components/Card";
+import ConfettiExplosion from "./components/Confetti";
 
 /* const content = [
   { id: "One", name: "One", url: "https://cdn2.thecatapi.com/images/a0d.jpg" },
@@ -117,6 +118,7 @@ function App() {
 
   const [cards, setCards] = useState([]);
   const [resetCards, setResetCards] = useState(false);
+  const [win, setWin] = useState(false);
 
   useEffect(() => {
     // Fetch data from an external API
@@ -143,6 +145,19 @@ function App() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (win) {
+      setWin(false);
+    }
+  }, [win]);
+
+  useEffect(() => {
+    if(score === cards.length && score > 0) {
+      setWin(true);
+      setBestScore(score);
+    }
+  }, [score, cards.length]);
+  
   const incrementScore = () => {
     setScore((score) => score + 1);
     setResetCards(false);
@@ -180,6 +195,8 @@ function App() {
           ></Card>
         ))}
       </main>
+
+      <ConfettiExplosion fire={win}></ConfettiExplosion>
     </>
   );
 }

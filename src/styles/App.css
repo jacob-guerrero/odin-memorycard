@@ -23,6 +23,12 @@
     font-weight: 700;
 }
 
+#rewardId {
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+}
+
 .container {
     justify-content: center;
     display: grid;
