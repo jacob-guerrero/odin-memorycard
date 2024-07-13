@@ -4,6 +4,7 @@ import Title from "./components/Title";
 import Score from "./components/Score";
 import Card from "./components/Card";
 import ConfettiExplosion from "./components/Confetti";
+import Footer from "./components/Footer";
 
 /* const content = [
   { id: "One", name: "One", url: "https://cdn2.thecatapi.com/images/a0d.jpg" },
@@ -125,7 +126,7 @@ function App() {
     const fetchData = async () => {
       /* const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12'); */
       const apiKey = 'live_VSgQc5Zpc0fRIbMPUp0mxGWO1DdQXUjTouFKxBMGqGLfAizmDZvoMjygidNuvCaj';
-      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12', {
+      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=4', {
         headers: {
           'x-api-key': apiKey
         }
@@ -195,6 +196,10 @@ function App() {
           ></Card>
         ))}
       </main>
+
+      <footer className="footer">
+        <Footer></Footer>
+      </footer>
 
       <ConfettiExplosion fire={win}></ConfettiExplosion>
     </>

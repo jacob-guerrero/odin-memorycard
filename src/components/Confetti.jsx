@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useReward } from 'react-rewards';
 
 const config = {
-    lifetime : 600,
+    lifetime : 500,
     decay : 0.95,
     spread : 130,
     elementCount : 100,
@@ -24,7 +24,7 @@ function ConfettiExplosion (props) {
     }
 
     return (
-        <span id="rewardId" style={{width: 2, height: 2, background: "red"}} />
+        <span id="rewardId"/>
     )
 }
 
