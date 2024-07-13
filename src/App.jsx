@@ -126,7 +126,7 @@ function App() {
     const fetchData = async () => {
       /* const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12'); */
       const apiKey = 'live_VSgQc5Zpc0fRIbMPUp0mxGWO1DdQXUjTouFKxBMGqGLfAizmDZvoMjygidNuvCaj';
-      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=4', {
+      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12', {
         headers: {
           'x-api-key': apiKey
         }
