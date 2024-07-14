@@ -45,7 +45,7 @@
     border-radius: 4%;
 }
 .card-img {
-    width: 200px;
+    width: 100%;
     height: 200px;
 }
 .card-img-content {
@@ -55,6 +55,7 @@
     object-fit: cover;
 }
 .card-text {
+    height: calc(2rem);
     color: #242424;
     text-align: center;
     font-family: "Poetsen One", sans-serif;
@@ -66,6 +67,42 @@
 .card:hover {
     cursor: pointer;
     box-shadow: #e9edc9 0px 4px 10px;
+}
+
+.flip-card {
+    width: 200px;
+    height: calc(200px + 2rem);
+    position: relative;
+    perspective: 2000px;
+}
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.card, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.card-back {
+    background-color: #fefae0;
+    transform: rotateY(180deg);
+    border-radius: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-back-img {
+    width: 8rem;
+    height: auto;
 }
 
 /* Footer */
