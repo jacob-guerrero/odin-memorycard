@@ -119,10 +119,11 @@ function App() {
 
   const [cards, setCards] = useState([]);
   const [resetCards, setResetCards] = useState(false);
+  const [allFlipped, setAllFlipped] = useState(false);
   const [win, setWin] = useState(false);
 
+  // Fetch data from an external API (images from cat API)
   useEffect(() => {
-    // Fetch data from an external API
     const fetchData = async () => {
       /* const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12'); */
       const apiKey = 'live_VSgQc5Zpc0fRIbMPUp0mxGWO1DdQXUjTouFKxBMGqGLfAizmDZvoMjygidNuvCaj';
@@ -176,6 +177,16 @@ function App() {
     setCards((prevCards) => shuffleArray([...prevCards]));
   };
 
+  const flipCards = () => {
+    setAllFlipped(true);
+    setTimeout(() => {
+      shuffleCards();
+      setTimeout(() => {
+        setAllFlipped(false);
+      }, 600); // Time for the flip back animation
+    }, 600); // Time for the initial flip animation
+  };
+  
   return (
     <>
       <header className="header-content">
@@ -192,6 +203,8 @@ function App() {
             shuffle={shuffleCards}
             incrementScore={incrementScore}
             changeBestScore={changeBestScore}
+            flipCards={flipCards}
+            allFlipped={allFlipped}
             resetCards={resetCards}
           ></Card>
         ))}

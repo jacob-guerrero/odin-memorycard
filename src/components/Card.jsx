@@ -3,7 +3,7 @@ import cardBackImg from '../assets/back-card.png';
 
 function Card(props) {
   const [wasClicked, setWasClicked] = useState(false);
-
+  
   const handleClickCard = () => {
     if (!wasClicked) {
       setWasClicked(true);
@@ -11,7 +11,7 @@ function Card(props) {
     } else {
       props.changeBestScore();
     }
-    props.shuffle();
+    props.flipCards();
   };
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function Card(props) {
   }, [props.resetCards]);
 
   return (
-    <div className="flip-card">
+    <div className={`flip-card ${(props.allFlipped) ? "flipped" : ""}`}>
       <div className="flip-card-inner">
         <div className="card" onClick={() => handleClickCard()}>
           <div className="card-img">
