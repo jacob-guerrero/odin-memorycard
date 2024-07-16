@@ -159,6 +159,16 @@ function App() {
       setBestScore(score);
     }
   }, [score, cards.length]);
+
+  /* Initial card-back while fetching imgs */
+  useEffect(() => {
+    setAllFlipped(true);
+    if(cards.length > 0) {
+      setTimeout(() => {
+        setAllFlipped(false);
+      }, 2000); // Wait for 1 second before flipping to show the front
+    }
+  }, [cards.length]);
   
   const incrementScore = () => {
     setScore((score) => score + 1);
