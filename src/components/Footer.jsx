@@ -1,6 +1,6 @@
 import githubIcon from '../assets/github-mark.png';
 import githubIconWhite from '../assets/github-mark-white.png';
-import logo from '../assets/foot-fill2.png';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (

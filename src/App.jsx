@@ -121,17 +121,22 @@ function App() {
   const [resetCards, setResetCards] = useState(false);
   const [allFlipped, setAllFlipped] = useState(false);
   const [win, setWin] = useState(false);
+  const [lost, setLost] = useState(false);
 
   // Fetch data from an external API (images from cat API)
   useEffect(() => {
     const fetchData = async () => {
       /* const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12'); */
-      const apiKey = 'live_VSgQc5Zpc0fRIbMPUp0mxGWO1DdQXUjTouFKxBMGqGLfAizmDZvoMjygidNuvCaj';
-      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=12', {
-        headers: {
-          'x-api-key': apiKey
+      const apiKey =
+        "live_VSgQc5Zpc0fRIbMPUp0mxGWO1DdQXUjTouFKxBMGqGLfAizmDZvoMjygidNuvCaj";
+      const response = await fetch(
+        "https://api.thecatapi.com/v1/images/search?limit=12",
+        {
+          headers: {
+            "x-api-key": apiKey,
+          },
         }
-      });
+      );
       const data = await response.json();
 
       /* Add random names */
@@ -154,7 +159,16 @@ function App() {
   }, [win]);
 
   useEffect(() => {
-    if(score === cards.length && score > 0) {
+    if (resetCards) {
+      setLost(true);
+      setTimeout(() => {
+        setLost(false);
+      }, 1400);
+    }
+  }, [resetCards]);
+
+  useEffect(() => {
+    if (score === cards.length && score > 0) {
       setWin(true);
       setBestScore(score);
     }
@@ -163,13 +177,13 @@ function App() {
   /* Initial card-back while fetching imgs */
   useEffect(() => {
     setAllFlipped(true);
-    if(cards.length > 0) {
+    if (cards.length > 0) {
       setTimeout(() => {
         setAllFlipped(false);
       }, 2000); // Wait for 1 second before flipping to show the front
     }
   }, [cards.length]);
-  
+
   const incrementScore = () => {
     setScore((score) => score + 1);
     setResetCards(false);
@@ -196,7 +210,7 @@ function App() {
       }, 600); // Time for the flip back animation
     }, 600); // Time for the initial flip animation
   };
-  
+
   return (
     <>
       <header className="header-content">
@@ -204,7 +218,7 @@ function App() {
         <Score currentScore={score} bestScore={bestScore}></Score>
       </header>
 
-      <main className="container">
+      <main className={`container ${lost ? "lost" : ""}`}>
         {cards.map((card) => (
           <Card
             key={card.id}
