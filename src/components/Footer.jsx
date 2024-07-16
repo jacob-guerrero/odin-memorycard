@@ -4,7 +4,7 @@ import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
-      <div className="footer-content">
+      <div className="footer-content" translate="no">
         <img src={logo} alt="Cat Memory Game Logo" className="footer-logo" />
         <p>&copy; {new Date().getFullYear()} Cat Memory Game. Jacob G.</p>
         <a href="https://github.com/jacob-guerrero/" target="_blank" rel="noopener noreferrer">

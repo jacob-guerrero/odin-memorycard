@@ -218,7 +218,7 @@ function App() {
         <Score currentScore={score} bestScore={bestScore}></Score>
       </header>
 
-      <main className={`container ${lost ? "lost" : ""}`}>
+      <main className={`container ${lost ? "lost" : ""}`} translate="no">
         {cards.map((card) => (
           <Card
             key={card.id}
